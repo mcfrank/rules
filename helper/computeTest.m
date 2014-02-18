@@ -32,7 +32,7 @@ for i = 1:length(items)
       p_string_given_rule = logsumexp([log_alpha + hs.log_probs(r); ...
           log_notalpha + log(hs.cardinalities(r)/N_s)]);   
     else
-      p_string_given_rule = log_notalpha + log(1 / (N_s - hs.cardinalities(r)));      
+      p_string_given_rule = log_notalpha + log(1 / (N_s));      
     end
     
     item_p(r,i) = p_string_given_rule + p_rule(r);
