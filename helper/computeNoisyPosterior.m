@@ -1,3 +1,4 @@
+% note correction by Florent Meyniel of log-likelihood under noise
 % gets posterior for model 2 
 % useful for simulations
 
@@ -23,7 +24,8 @@ function [p ll] = computeNoisyPosterior(hs,train,params,index_cache)
         ll(r,i) = logsumexp([log_alpha + hs.log_probs(r); ...
           log_notalpha + log(hs.cardinalities(r)/N_s) + hs.log_probs(r)]);
       else        
-        ll(r,i) = log_notalpha + log(1 / (N_s - hs.cardinalities(r)));
+%         ll(r,i) = log_notalpha + log(1 / (N_s - hs.cardinalities(r)));
+        ll(r,i) = log_notalpha + log(1 / (N_s));
       end        
     end    
   end
