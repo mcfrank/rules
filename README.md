@@ -3,6 +3,13 @@ rules
 
 This repository contains the code for a model by Frank & Tenenbaum (2011), and corrections, elaborations, and extensions. It is a more dynamic version of the original zip file that was distributed with the paper. 
 
+Correction
+----------
+
+Note that this code contains a correction to Equation 4, suggested by Florent Meyniel. The bottom term of this Equation should read \frac{(1-\alpha)}{|S|} instead of \frac{(1-\alpha)}{|S|-|r|}.
+
+When this correction is implemented, there are some small numerical differences in results, but as far as we know, no qualitative differences resulting in modification to any of our claims. 
+
 Original readme is below:
 =====
 Readme for code accompanying Frank & Tenenbaum, "Three ideal observer models for rule learning in simple languages."
