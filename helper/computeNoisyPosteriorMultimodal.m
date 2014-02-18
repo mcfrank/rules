@@ -3,6 +3,8 @@
 
 % this is a hack for the Frank 2009 multimodal condition
 
+% corrected via Florent Meyniel 2/18/14
+
 function [p ll] = computeNoisyPosteriorMultimodal(hs,train,params,index_cache,cond)
 
   if strcmp(cond,'multi') % multimodal
@@ -30,7 +32,7 @@ function [p ll] = computeNoisyPosteriorMultimodal(hs,train,params,index_cache,co
         ll(r,i) = logsumexp([log_alpha + hs.log_probs(r); ...
           log_notalpha + log(hs.cardinalities(r)/N_s) + hs.log_probs(r)]);
       else        
-        ll(r,i) = log_notalpha + log(1 / (N_s - hs.cardinalities(r)));
+        ll(r,i) = log_notalpha + log(1 / (N_s));
       end        
     end    
   end

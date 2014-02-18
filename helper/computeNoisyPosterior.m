@@ -1,6 +1,6 @@
-% note correction by Florent Meyniel of log-likelihood under noise
 % gets posterior for model 2 
 % useful for simulations
+% note correction by Florent Meyniel of log-likelihood under noise 2/18/14
 
 function [p ll] = computeNoisyPosterior(hs,train,params,index_cache)
 

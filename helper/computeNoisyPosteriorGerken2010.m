@@ -5,6 +5,8 @@
 % not heard as many times as others; alpha2 is the higher noise parameter
 % for the strings that are only heard once.
 
+% corrected via Florent Meyniel 2/18/14
+
 function [p ll] = computeNoisyPosteriorGerken2010(hs,train,params,index_cache,alpha2)
 
   N_s = length(hs.all_strings);
@@ -41,7 +43,7 @@ function [p ll] = computeNoisyPosteriorGerken2010(hs,train,params,index_cache,al
         ll(r,i) = logsumexp([log_alpha + hs.log_probs(r); ...
           log_notalpha + log(hs.cardinalities(r)/N_s) + hs.log_probs(r)]);
       else        
-        ll(r,i) = log_notalpha + log(1 / (N_s - hs.cardinalities(r)));
+          ll(r,i) = log_notalpha + log(1 / (N_s));
       end        
     end    
   end

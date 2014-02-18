@@ -16,10 +16,11 @@ load(name);
 % initialization
 conds = {'2x','6x','12x','24x'};
 gammas = [1];
-alphas = [0:.1:1];
+alphas = [0:.05:1];
 num_subs = 100;
 
 %% simulations 
+clear one_post two_post
 
 for cond = 1:length(conds)
   disp(conds{cond});
@@ -75,13 +76,13 @@ clf
 subplot(1,4,1:2)
 set(gca,'Fontsize',12)
 title('model 3, \alpha varied, \gamma = 1')
-h = plot([2 6 12 24],mcps(:,2:20),'k--o');
+h = plot([2 6 12 24],mcps(:,:),'k--o');
 axis([-1 25 .4 1])
 xlabel('number of X elements')
 set(gca,'XTick',[2 6 12 24])
 ylabel('choice probability')
 
-for i = [1 9 11 13 15 16 17 18 19 20]
+for i = 1:11
   text(-0.5,mcps(1,i),num2str(alphas(i),'%2.2f'));
 end
 title('model 3: \alpha varied, \gamma = 1')
@@ -92,7 +93,7 @@ subplot(1,4,3)
 hold on
 set(gca,'Fontsize',12)
 
-bar(mean(choice_probs(:,9,:,:),4),'FaceColor',[.5 .5 .5])
+bar(mean(choice_probs(:,5,:,:),4),'FaceColor',[.5 .5 .5])
 title('model 3: \alpha = .4, \gamma = 1')
 axis([0 5 .4 1])
 set(gca,'XTickLabel',[2 6 12 24],'XTick',[1 2 3 4])

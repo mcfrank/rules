@@ -44,10 +44,10 @@ for l = 1:length(langs)
   end
 end
 
-save gerken2006_2010.mat surprisal
+save ../mats/gerken2006_2010.mat surprisal
 
 %% plot
-load mats/gerken2006_2010.mat
+load ../mats/gerken2006_2010.mat
 aval = 17; % which value of alpha do we use?
 
 figure(1)

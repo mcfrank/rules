@@ -23,7 +23,7 @@ function loglike = computeNoisyLikelihood(hs,c,train,params,index_cache)
           ll_rule_string{k}(r,i) = logsumexp([log_alpha + hs.log_probs(r); ...
             log_notalpha + log(hs.cardinalities(r)/N_s) + hs.log_probs(r)]);
         else        
-          ll_rule_string{k}(r,i) = log_notalpha + log(1 / (N_s - hs.cardinalities(r)));
+          ll_rule_string{k}(r,i) = log_notalpha + log(1 / (N_s));
         end        
       end    
     end

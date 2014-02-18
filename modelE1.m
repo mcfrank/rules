@@ -1,4 +1,6 @@
 % MODEL E1
+% designed to try and implement the "common-sense" suggestion of Endress
+% (2013)
 %
 % possible experiments:
 % - marcus1999: ABB, ABA

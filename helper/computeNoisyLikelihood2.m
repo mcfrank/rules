@@ -1,6 +1,7 @@
 % compute the likelihood p(d|h) 
 % assuming the noisy likelihood (models 2 and 3)
 % this is the fastest version yet
+% corrected 2/18/14 via Florent Meyniel
 
 function loglike = computeNoisyLikelihood2(hs,c,train,params,index_cache)
 
@@ -16,7 +17,8 @@ function loglike = computeNoisyLikelihood2(hs,c,train,params,index_cache)
     cache_inds = find(c==k);
 
     % fill in likelihood of data if produced by noise from some rule
-    noise_vals = log_notalpha + log(1 ./ (N_s - hs.cardinalities));
+%     noise_vals = log_notalpha + log(1 ./ (N_s - hs.cardinalities));
+    noise_vals = log_notalpha + log(1 ./ (N_s));
     ll_rule_string{k} = repmat(noise_vals,[1 sum(c==k)]);
     
     % compute likelihood of the data under each other possible rule
