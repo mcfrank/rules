@@ -2,6 +2,10 @@
 % simulations for gomez (2002), psych science
 % score alternative hypotheses
 
+% note the different alpha range and slightly greater number of sims
+% compared to the paper - this was done to follow up on some minor
+% numerical differences found between the figure and future simulations 
+
 clear all
 
 params.expt = 'gomez2002'; 
@@ -16,8 +20,8 @@ load(name);
 % initialization
 conds = {'2x','6x','12x','24x'};
 gammas = [1];
-alphas = [0:.05:1];
-num_subs = 100;
+alphas = [.3:.025:.8]; % was [.1:.1:.9]
+num_subs = 200; % was 100 but the variance was pretty high
 
 %% simulations 
 clear one_post two_post
@@ -82,7 +86,7 @@ xlabel('number of X elements')
 set(gca,'XTick',[2 6 12 24])
 ylabel('choice probability')
 
-for i = 1:11
+for i = 1:size(mcps,2)
   text(-0.5,mcps(1,i),num2str(alphas(i),'%2.2f'));
 end
 title('model 3: \alpha varied, \gamma = 1')
@@ -93,7 +97,7 @@ subplot(1,4,3)
 hold on
 set(gca,'Fontsize',12)
 
-bar(mean(choice_probs(:,5,:,:),4),'FaceColor',[.5 .5 .5])
+bar(mean(choice_probs(:,find(alphas==.4),:,:),4),'FaceColor',[.5 .5 .5])
 title('model 3: \alpha = .4, \gamma = 1')
 axis([0 5 .4 1])
 set(gca,'XTickLabel',[2 6 12 24],'XTick',[1 2 3 4])
