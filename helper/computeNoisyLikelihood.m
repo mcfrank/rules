@@ -28,10 +28,7 @@ function loglike = computeNoisyLikelihood(hs,c,train,params,index_cache)
       end    
     end
 
-    ll_rule{k} = sum(ll_rule_string{k},2) + log(1/N_r);
- 
-    % take the sum over all those that aren't -Inf
-    ll_cluster(k) = logsumexp(ll_rule{k}(~isinf(ll_rule{k})));
+    ll_cluster(k) = sum(logsumexp(ll_rule_string{k} + log(1/N_r)));
   end
  
   loglike = sum(ll_cluster);

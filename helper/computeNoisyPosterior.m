@@ -25,7 +25,7 @@ function [p ll] = computeNoisyPosterior(hs,train,params,index_cache)
           log_notalpha + log(hs.cardinalities(r)/N_s) + hs.log_probs(r)]);
       else        
 %         ll(r,i) = log_notalpha + log(1 / (N_s - hs.cardinalities(r)));
-        ll(r,i) = log_notalpha + log(1 / (N_s));
+        ll(r,i) = log_notalpha + log(1 / N_s);
       end        
     end    
   end
