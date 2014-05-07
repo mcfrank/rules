@@ -17,10 +17,10 @@ clear all
 addpath('helper')
 
 %% parameters
-params.expt = 'marcus1999'; 
+params.expt = 'kovacs2009'; 
 params.lang = 'ABB'; 
-params.alpha = .8;     % memory noise parameter
-params.gamma = .01;    % parameter for chinese restaurant process
+params.alpha = .9;     % memory noise parameter
+params.gamma = .2;    % parameter for chinese restaurant process
 params.num_iter = 100; % number of gibbs steps
 
 %% initialization

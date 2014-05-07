@@ -8,6 +8,7 @@ params.expt = 'kovacs2009';
 params.lang = '';
 params.alpha = 1;
 load('../mats/kovacs2009.mat');
+addpath('../helper')
 
 %%
 gammas = [1e-1 1e-2 1e-3 1e-4 1e-5];
@@ -57,11 +58,11 @@ for a = 1:length(alphas)
   end
 end
 
-save mats/kovacs2009.mat one_post two_post
+save ../mats/kovacs2009-sims.mat one_post two_post
 
 %% plots 
 
-load mats/kovacs2009.mat
+load ../mats/kovacs2009-sims.mat
 one_prob = exp(one_post) ./ (exp(one_post) + exp(two_post));
 two_prob = exp(two_post) ./ (exp(one_post) + exp(two_post));
 
@@ -100,7 +101,6 @@ gd = 3;
 plot(alphas(a),mean(-diff(two_prob(:,a,g,gd,:)),5),'k.','MarkerSize',20)
 
 % then just one part of it
-
 subplot(1,3,3)
 set(gca,'FontSize',12)
 h = bar([mean(one_prob(:,a,g,gd,:),5)'; mean(two_prob(:,a,g,gd,:),5)']');

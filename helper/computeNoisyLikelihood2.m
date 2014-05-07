@@ -2,7 +2,6 @@
 % assuming the noisy likelihood (models 2 and 3)
 % this is the fastest version yet
 % corrected 2/18/14 via Florent Meyniel
-% corrected again 3/21/14 via Florent Meyniel
 
 function loglike = computeNoisyLikelihood2(hs,c,train,params,index_cache)
 
@@ -30,8 +29,11 @@ function loglike = computeNoisyLikelihood2(hs,c,train,params,index_cache)
       end    
     end
         
-    % add rule prior, sum over rules, then product over strings
-    ll_cluster(k) = sum(logsumexp(ll_rule_string{k} + log(1/N_r)));
+    % now product over rules
+    ll_rule{k} = sum(ll_rule_string{k},2) + log(1/N_r);
+ 
+    % now sum for that cluster over all those that aren't -Inf
+    ll_cluster(k) = logsumexp(ll_rule{k}(~isinf(ll_rule{k})));
   end
   
   % now product over clusters
