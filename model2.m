@@ -18,8 +18,8 @@ clear all
 addpath('helper')
 
 % parameters
-params.expt = 'marcus1999'; 
-params.lang = 'ABB'; 
+params.expt = 'gerken2006'; 
+params.lang = 'ABx'; 
 
 %% initialization
 name = ['mats/' params.expt '.mat'];

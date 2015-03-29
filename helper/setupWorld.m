@@ -49,7 +49,13 @@ switch params.expt
         
         correct = {[9 9 11],[10 10 12]};
         incorrect = {[9 11 9],[9 12 9]};
-      
+
+      case 'ABx'
+        train = {[1 2 5],[2 3 5],[3 4 5],[4 1 5]};
+        
+        correct = {[9 10 5],[10 9 5]};
+        incorrect = {[9 10 11],[10 9 11]};
+
       case 'AAx2'
         train = {[1 1 5],[2 2 5],[3 3 5],[4 4 5]};
         

@@ -15,7 +15,7 @@ function [p ll] = computeNoisyPosterior(hs,train,params,index_cache)
     % flip an alpha-weighted coin and change on symbol of the sentence if it 
     % comes up 1-alpha.
     if rand > params.alpha
-      train{i} = hs.all_strings{Randi(length(hs.all_strings))};
+      train{i} = hs.all_strings{randi(length(hs.all_strings))};
       index_cache.train(i) = find(cellfun(@(x) all(train{i} == x),hs.all_strings));
     end  
     
